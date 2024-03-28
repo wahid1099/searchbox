@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Results</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="searchInput" placeholder="Enter search query..." />
+      <button onclick="search(1, 10)">Search</button>
+      <table id="resultsTable">
+        <!-- Table content will be filled dynamically -->
+      </table>
+
+      <!-- Pagination controls -->
+      <div class="pagination">
+        <button onclick="previousPage()">Previous</button>
+        <input type="number" id="pageNumberInput" min="1" />
+        <button onclick="goToPage()">Go</button>
+        <select id="perPageSelect" onchange="changePerPage()">
+          <option value="10">10 rows per page</option>
+          <option value="20">20 rows per page</option>
+          <option value="30">30 rows per page</option>
+          <!-- Add more options as needed -->
+        </select>
+        <button onclick="nextPage()">Next</button>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
